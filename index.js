@@ -1,10 +1,11 @@
+
 largestSubarraySum = (array) => {
-    let total = array[0]
+    let currentSum = 0
+    let maxSum = 0
     for (let i = 0; i < array.length; i++) {
-        if (array[i] + array[i + 1] >= 0) {
-            total += array[i + 1]
-        } else {
-            return total
-        }
+        let currentNum = array[i]
+        currentSum = Math.max((currentSum + currentNum), 0)
+        maxSum = Math.max(currentSum, maxSum)
     }
+    return maxSum
 }
